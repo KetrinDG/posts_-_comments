@@ -1,12 +1,10 @@
-Here's the project description in English:
+### Project Description
 
-## Project Description
+#### About the Project
+This project provides an API for managing posts and comments with FastAPI and MongoDB. It includes user registration, authentication, post and comment management, content moderation, and comment analytics.
 
-### About the Project
-This project implements an API for managing posts and comments using FastAPI and MongoDB. It includes functionality for user registration and authentication, creating and managing posts and comments, content moderation, and comment analytics generation.
-
-### Project Structure
-The project is organized as follows:
+#### Project Structure
+The project directory is organized as follows:
 
 ```
 project_test/
@@ -57,46 +55,54 @@ project_test/
 └── main.py
 ```
 
-### Database Connection (database/connect.py)
-Contains the logic for connecting to the MongoDB database using `motor`, an asynchronous MongoDB driver for Python.
+### Database Connection (`database/connect.py`)
+Contains the logic for connecting to MongoDB using `motor`, an asynchronous driver for Python.
 
-### JWT Utilities (utils/jwt_utils.py)
-Implements functions for creating and decoding JWT tokens used for user authentication.
+### JWT Utilities (`utils/jwt_utils.py`)
+Implements functions for creating and decoding JWT tokens for user authentication.
 
-### Registration Routes (routes/registration.py)
-Implements the endpoint for registering new users. Email and password validation are performed before saving user data in the database.
+### Registration Routes (`routes/registration.py`)
+Provides an endpoint for registering new users, with email and password validation.
 
-### User Data Update Routes (routes/update.py)
-Includes endpoints for updating username, email, and password. Each request is logged to ensure change tracking.
+### User Data Update Routes (`routes/update.py`)
+Includes endpoints for updating username, email, and password, with each request logged.
 
-### User Data Retrieval Routes (routes/user_data.py)
-Allows fetching user data by a specific field or all user data except for the password. Token validation is performed for each request.
+### User Data Retrieval Routes (`routes/user_data.py`)
+Allows retrieval of user data by specific field or all data except the password, with token validation.
 
-### Security Utilities (security/security.py)
-Includes functions for hashing and verifying passwords using the `passlib` library.
+### Security Utilities (`security/security.py`)
+Functions for hashing and verifying passwords using the `passlib` library.
 
-### Tests (test_requests/test.py)
-A script for automated testing of registration and login functionalities, as well as user data retrieval.
+### Testing
+#### Tests (`test_requests/test.py`)
+Automated tests for registration and login functionalities, and user data retrieval.
 
-### Post and Comment Testing (test_requests/test_post_comments.py)
-Includes tests for creating posts and comments, as well as retrieving comments for a post.
+#### Post and Comment Testing (`test_requests/test_post_comments.py`)
+Includes:
+- **Post Creation**: Tests for creating posts.
+- **Comment Creation**: Tests for adding comments to posts.
+- **Comment Retrieval**: Tests for retrieving comments associated with posts.
 
-### Main File (main.py)
-The main file of the application, including routes from all modules and creating an instance of FastAPI.
+#### Test Coverage
+Ensure all routes and functionalities are covered:
+- **User Registration**: Test scenarios for valid and invalid registration.
+- **Authentication**: Test login functionality and JWT token generation.
+- **Data Update**: Test updating user details and ensure logging.
+- **Post and Comment Management**: Test creating, updating, and retrieving posts and comments.
+- **Analytics**: Test analytics endpoints for correctness in comment statistics.
 
-### Usage
-1. **Running the Application**:
-   - Ensure MongoDB is running.
-   - Install project dependencies with `pip install -r requirements.txt`.
-   - Start the FastAPI server with `uvicorn main:app --reload`.
+### Running the Application
+1. Ensure MongoDB is running.
+2. Install dependencies with `pip install -r requirements.txt`.
+3. Start the server with `uvicorn main:app --reload`.
 
-2. **Endpoints**:
-   - `/auth/`: Endpoints for authentication.
-   - `/delete/`: Endpoints for deleting data.
-   - `/registration/`: Endpoints for user registration.
-   - `/update/`: Endpoints for updating user data.
-   - `/user_data/`: Endpoints for retrieving user data.
-   - `/username/`: Endpoints for managing username.
+### Endpoints
+- `/auth/`: Authentication endpoints.
+- `/delete/`: Endpoints for deleting data.
+- `/registration/`: User registration.
+- `/update/`: Update user data.
+- `/user_data/`: Retrieve user data.
+- `/username/`: Manage usernames.
 
-3. **Testing**:
-   - Run tests located in `src/test_requests/` with `pytest`.
+### Testing
+- Run tests using `pytest` from the `src/test_requests/` directory.
