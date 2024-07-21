@@ -106,3 +106,17 @@ Ensure all routes and functionalities are covered:
 
 ### Testing
 - Run tests using `pytest` from the `src/test_requests/` directory.
+
+### Libraries Used
+
+The project uses the following libraries:
+
+- **FastAPI**: For building the API.
+- **Motor**: Asynchronous driver for MongoDB.
+- **Pydantic**: For data validation.
+- **passlib**: For password hashing.
+- **pytest**: For testing.
+- **bcrypt**: For hashing passwords.
+- **JWT**: For JSON Web Token encoding and decoding.
+- **uvicorn**: For running the FastAPI application.
+
